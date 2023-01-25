@@ -44,10 +44,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "landingpage",
+      name: "resource",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        "./Resource": "./src/components/MainPage.jsx",
+      },
       shared: {
         ...deps,
         react: {
